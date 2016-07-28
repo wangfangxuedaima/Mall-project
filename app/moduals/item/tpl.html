@@ -1,0 +1,41 @@
+<% function toDecimal2(x) {
+   var f = parseFloat(x);
+   if (isNaN(f)) {
+      return false;
+   }
+   var f = Math.round(x*100)/100;
+   var s = f.toString();
+   var rs = s.indexOf('.');
+   if (rs < 0) {
+      rs = s.length;
+      s += '.';
+   }
+   while (s.length <= rs + 2) {
+      s += '0';
+   }
+   return s;
+}%>
+<% _.each(obj,function(e,i){ %>
+<div class="card"  n='<%= i %>'>
+   <div class="card-content" n='<%= i %>'>
+      <div class="list-block media-list" n='<%= i %>'>
+         <ul n='<%= i %>'>
+            <li class="item-content" n='<%= i %>'>
+               <div class="item-media" n='<%= i %>'>
+                  <img src="images/cocacoola.png" width="44" n='<%= i %>'>
+               </div>
+               <div class="item-inner" n='<%= i %>'>
+                  <div class="item-title-row" n='<%= i %>'>
+                     <div class="item-title" n='<%= i %>'><%= e.goods_name %></div>
+                  </div>
+                  <div class="item-subtitle" n='<%= i %>'><%= e.goods_spec %></div>
+               </div>
+            </li>
+         </ul>
+      </div>
+   </div>
+   <div class="card-footer" n='<%= i %>'>
+      <span n='<%= i %>'><%= toDecimal2(e.sale_price) %></span>
+   </div>
+</div>
+<% }) %>

@@ -1,0 +1,43 @@
+<% function toDecimal2(x) {
+    var f = parseFloat(x);
+    if (isNaN(f)) {
+        return false;
+    }
+    var f = Math.round(x*100)/100;
+    var s = f.toString();
+    var rs = s.indexOf('.');
+        if (rs < 0) {
+        rs = s.length;
+        s += '.';
+    }
+    while (s.length <= rs + 2) {
+        s += '0';
+    }
+    return s;
+}%>
+<% _.each(obj,function(e,i){ %>
+<li class="swipeout" data-index="<%= i %>">
+    <div class="swipeout-content item-content">
+        <div class="item-inner"><%= i+1 %></div>
+        <div class="item-inner"><%= e.goods_name %></div>
+        <!--<div class="item-inner"><div>+</div><div>2</div><div>-</div></div>-->
+        <!--<div class="item-inner for-item-num" data-index="<%= i %>"><div class="for-item-num" data-index="<%= i %>"><%= e.num %></div></div>-->
+        <div class="item-inner for-item-num" data-index="<%= i %>">
+            <div class="item-input">
+                <input type="text" value="<%= e.num %>" readonly class="picker-amount">
+            </div>
+        </div>
+        <div class="item-inner"><div><%= toDecimal2(e.price) %></div></div>
+        <div class="item-inner"><%= toDecimal2(e.discount) %></div>
+        <div class="item-inner"><%= toDecimal2(e.num*e.price-e.discount) %></div>
+    </div>
+    <div class="swipeout-actions-right">
+        <a class="single-discount bg-cyan ripple"><i class="icon icon-single-discout-white"></i></a>
+        <a class="delete bg-red ripple"><i class="icon icon-delete-white"></i></a>
+    </div>
+    <div class="swipeout-actions-left">
+        <a class="plus bg-indigo ripple" data-index="<%= i %>"><i class="icon icon-add-white"></i> </a>
+        <a class="minus bg-amber ripple" data-index="<%= i %>"><i class="icon icon-minus-white"></i></a>
+    </div>
+</li>
+<% }) %>
