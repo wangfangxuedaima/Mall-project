@@ -4,9 +4,8 @@
 define([
     'jquery',
     'underscore',
-    'backbone',
-    'framework7'
-], function($, _, Backbone, Framework7) {
+    'backbone'
+], function($, _, Backbone) {
 
     var BaseView = Backbone.View.extend({
 

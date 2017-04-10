@@ -67,7 +67,7 @@ require([
     "storage",
     "loading"
 
-], function($, _, Backbone, common, framework7, BaseRouter, validation, serializeObject, storage, loading, HomeView, OnlineOrderView, OnlineServiceView, RechargeView, ReturnView, SettingView, ItemListView) {
+], function($, _, Backbone, common, BaseRouter, validation, serializeObject, storage, loading, HomeView, OnlineOrderView, OnlineServiceView, RechargeView, ReturnView, SettingView, ItemListView) {
 
     Backbone.history.start(); //开始监控url变化
     _.extend(Backbone.Model.prototype, Backbone.Validation.mixin);
