@@ -1,98 +1,86 @@
 <!DOCTYPE html>
 <html lang="zh">
+
 <head>
     <meta charset="UTF-8">
     <title>云POS</title>
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
     <link rel="stylesheet" href="./css/default.css">
     <!-- script -->
     <script src="./js/status_config.js"></script>
     <script src="./js/lib/require.min.js"></script>
     <script src="./js/config.js"></script>
 </head>
+
 <body>
 
-<div class="views row">
-</div>
-
-
-
-<div class="panel-overlay"></div>
-<div class="panel panel-left panel-cover">
-    <div class="navbar">
-        <div class="navbar-inner">
-            <div class="center">POS</div>
-        </div>
+    <div class="views row">
     </div>
-    <div class="list-block">
-        <!--<ul>-->
-            <!--<li>-->
-               <!--<div class="item-content">-->
-                   <!--<div class="col-30">&nbsp;</div>-->
-                   <!--<div class="col-20">-->
-                       <!--<a type="button" class="button ripple toHome"><i class="icon icon-home-blue"></i></a>-->
-                   <!--</div>-->
-                   <!--<div class="col-20 text-left">-->
-                       <!--<a type="button" class="button ripple toHome">首页</a>-->
-                   <!--</div>-->
-                   <!--<div class="col-30">&nbsp;</div>-->
-               <!--</div>-->
-            <!--</li>-->
-        <!--</ul>-->
-        <div class="row">
-            <div class="col-100 text-center">
-                <a type="button" class="button ripple toHome"><i class="icon icon-home-blue"></i></a>
-                <a type="button" class="button ripple toHome">首页</a>
+
+
+
+    <div class="panel-overlay"></div>
+    <div class="panel panel-left panel-cover">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="center">POS</div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-100 text-center">
-                <a type="button" class="button ripple toOnlineOrder"><i class="icon icon-order-blue"></i></a>
-                <a type="button" class="button ripple toOnlineOrder">在线订单</a>
+        <div class="list-block">
+            <div class="row">
+                <div class="col-100 text-center">
+                    <a type="button" class="button ripple toHome"><i class="icon icon-home-blue"></i></a>
+                    <a type="button" class="button ripple toHome">首页</a>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-100 text-center">
-                <a type="button" class="button ripple toOnlineService"><i class="icon icon-service-blue"></i></a>
-                <a type="button" class="button ripple toOnlineService">在线服务</a>
+            <div class="row">
+                <div class="col-100 text-center">
+                    <a type="button" class="button ripple toOnlineOrder"><i class="icon icon-order-blue"></i></a>
+                    <a type="button" class="button ripple toOnlineOrder">在线订单</a>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-100 text-center">
-                <a type="button" class="button ripple toRecharge"><i class="icon icon-recharge-blue"></i></a>
-                <a type="button" class="button ripple toRecharge">充值</a>
+            <div class="row">
+                <div class="col-100 text-center">
+                    <a type="button" class="button ripple toOnlineService"><i class="icon icon-service-blue"></i></a>
+                    <a type="button" class="button ripple toOnlineService">在线服务</a>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-100 text-center">
-                <a type="button" class="button ripple toReturn"><i class="icon icon-refund-blue"></i></a>
-                <a type="button" class="button ripple toReturn">退货</a>
+            <div class="row">
+                <div class="col-100 text-center">
+                    <a type="button" class="button ripple toRecharge"><i class="icon icon-recharge-blue"></i></a>
+                    <a type="button" class="button ripple toRecharge">充值</a>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-100 text-center">
-                <a type="button" class="button ripple toSetting"><i class="icon icon-settings-blue"></i></a>
-                <a type="button" class="button ripple toSetting">设置</a>
+            <div class="row">
+                <div class="col-100 text-center">
+                    <a type="button" class="button ripple toReturn"><i class="icon icon-refund-blue"></i></a>
+                    <a type="button" class="button ripple toReturn">退货</a>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-100 text-center">
-                <a type="button" class="button ripple toLogout"><i class="icon icon-logout-blue"></i></a>
-                <a type="button" class="button ripple toLogout">退出</a>
+            <div class="row">
+                <div class="col-100 text-center">
+                    <a type="button" class="button ripple toSetting"><i class="icon icon-settings-blue"></i></a>
+                    <a type="button" class="button ripple toSetting">设置</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-100 text-center">
+                    <a type="button" class="button ripple toLogout"><i class="icon icon-logout-blue"></i></a>
+                    <a type="button" class="button ripple toLogout">退出</a>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<div class="panel panel-right panel-cover">
-    <div class="view view-right">
-        <div class="pages navbar-fixed">
-            <div class="page page-on-center for-itemlist">
+    <div class="panel panel-right panel-cover">
+        <div class="view view-right">
+            <div class="pages navbar-fixed">
+                <div class="page page-on-center for-itemlist">
 
+                </div>
             </div>
         </div>
     </div>
-</div>
-</div>
+    </div>
 </body>
+
 </html>
