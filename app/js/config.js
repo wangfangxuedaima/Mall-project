@@ -6,7 +6,6 @@ require.config({
     waitSeconds: 0,
     baseUrl: './js/lib/',
     paths: {
-        // Core Libraries
         "jquery": "jquery-2.2.3",
         "serializeObject": "jquery.serializeObject",
         "storage": "../jquery-storageapi/jquery.storageapi.min",
@@ -15,13 +14,7 @@ require.config({
         "validation": "backbone-validation",
         "md5": "jQuery.md5",
         "common": "common",
-        'framework7': '../framework7/js/framework7.min',
         "loading": "../loading/jquery.showLoading.min",
-        'keypad': '../framework7-keypad/framework7.keypad.min',
-        //"light7": "../light7/js/light7.min",
-        //"citypicker": "../light7/js/light7-city-picker.min",
-        //"swipeout": "../light7/js/light7-swipeout",
-        //"swiper": "../light7/js/light7-swiper.min",
         "text": "requirePlugin/text",
         "css": "requirePlugin/css",
         "json": "requirePlugin/json",
@@ -54,31 +47,12 @@ require.config({
         "md5": {
             "deps": ["jquery"],
         },
-        "framework7": {
-            "deps": ["css!../framework7/css/framework7.material.css", "css!../framework7/css/framework7.material.colors.css"]
-        },
-        "keypad": {
-            "deps": ["framework7", "css!../framework7-keypad/framework7.keypad.min.css"]
-        },
         "loading": {
             "deps": [
                 "css!../loading/showLoading.css",
                 "jquery"
             ],
         },
-
-        //"light7": {
-        //    "deps": ["jquery", "css!../light7/css/light7.min.css"],
-        //},
-        //"citypicker": {
-        //    "deps": ["light7"],
-        //},
-        //"swipeout": {
-        //    "deps": ["light7", "css!../light7/css/light7-swipeout.css"],
-        //},
-        //"swiper": {
-        //    "deps": ["light7", "css!../light7/css/light7-swiper.css"],
-        //}
     }
 });
 
@@ -87,50 +61,16 @@ require([
     'underscore',
     'backbone',
     "common",
-    "framework7",
-    //"citypicker",
-    //"swipeout",
-    //"swiper",
     'js/common/Router.js',
     "validation",
     "serializeObject",
     "storage",
-    "loading",
-    '../../moduals/home/view',
-    '../../moduals/onlineOrder/view',
-    '../../moduals/onlineService/view',
-    '../../moduals/recharge/view',
-    '../../moduals/return/view',
-    '../../moduals/setting/view',
-    '../../moduals/itemlist/view'
+    "loading"
 
 ], function($, _, Backbone, common, framework7, BaseRouter, validation, serializeObject, storage, loading, HomeView, OnlineOrderView, OnlineServiceView, RechargeView, ReturnView, SettingView, ItemListView) {
 
     Backbone.history.start(); //开始监控url变化
     _.extend(Backbone.Model.prototype, Backbone.Validation.mixin);
-
-    //  validation 表单验证 页面布局显示
-    // _.extend(Backbone.Validation.callbacks, {
-    //     valid: function (view, attr, selector) {
-    //         console.log("valid");
-    //         console.log(view);
-    //         console.log(attr);
-    //         console.log(selector);
-    //     },
-    //     invalid: function (view, attr, error, selector) {
-    //         console.log("invalid");
-    //         console.log(view);
-    //         console.log(attr);
-    //         console.log(error);
-    //         console.log(selector);
-    //     }
-    // });
-    // 重新定义模板标签
-    // _.templateSettings = {
-    //     evaluate: /{([\s\S]+?)}/g,
-    //     interpolate: /{=([\s\S]+?)}/g,
-    //     escape: /{-([\s\S]+?)}/g
-    // };
 
     // 定义调试标志
     window.debug = true;
@@ -141,16 +81,7 @@ require([
     // 重新定义系统本地存储对象
     window.storage = $.localStorage;
 
-    window.f7app = new Framework7({
-        swipePanel: false,
-        material: true,
-        materialRipple: true,
-        materialRippleElements: '.ripple',
-        fastClicks: true,
-        router: false,
-    });
 
-    window.$$ = Dom7;
 
     //初始化第一次登陆参数
     if (!window.storage.isSet(system_config.IS_FIRST_KEY)) {
@@ -216,8 +147,6 @@ require([
     };
 
 
-
-
     // 定义系统router
     window.router = BaseRouter;
 
@@ -238,56 +167,6 @@ require([
         };
 
 
-    });
-
-    var itemListView = new ItemListView();
-    itemListView.render();
-
-    $('.toHome').bind('click', function() {
-        f7app.closePanel();
-        var homeView = new HomeView();
-        homeView.render();
-
-    });
-    $('.toOnlineOrder').bind('click', function() {
-        f7app.closePanel();
-        var onlineOrderView = new OnlineOrderView();
-        onlineOrderView.render();
-
-    });
-
-    $('.toOnlineService').bind('click', function() {
-        f7app.closePanel();
-        var onlineServiceView = new OnlineServiceView();
-        onlineServiceView.render();
-
-    });
-    $('.toRecharge').bind('click', function() {
-        f7app.closePanel();
-        var rechargeView = new RechargeView();
-        rechargeView.render();
-
-    });
-    $('.toReturn').bind('click', function() {
-        f7app.closePanel();
-        var returnView = new ReturnView();
-        returnView.render();
-
-    });
-    $('.toSetting').bind('click', function() {
-        f7app.closePanel();
-        var settingView = new SettingView();
-        settingView.render();
-
-    });
-    $('.toLogout').bind('click', function() {
-        console.log('logout');
-        f7app.closePanel();
-        router.navigate("", { trigger: true });
-    });
-
-    $('.panelClose').bind('click', function() {
-        f7app.closePanel();
     });
 
 });
