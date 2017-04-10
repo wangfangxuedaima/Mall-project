@@ -13,6 +13,7 @@ define([
 
         initialize: function(attrs) {
             console.log(">>> " + this.id);
+            console.log(this);
             this.undelegateEvents();
             this.$el.empty().off();
             if (attrs) {

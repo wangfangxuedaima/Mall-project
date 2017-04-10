@@ -4,7 +4,7 @@
 define([
     '../../../../js/common/BaseView',
     '../../../../moduals/login/model',
-    'text!../../../../moduals/login/login.html',
+    'text!../login.html',
     'md5'
 ], function(BaseView, LoginModel, tpl) {
 
@@ -53,8 +53,6 @@ define([
 
                     } else {
                         alert('dsfsa');
-                        //this._modal.render();
-                        //$(".for-modal-tips").modal("show");
                     }
                 });
 
